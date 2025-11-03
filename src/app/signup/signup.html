@@ -1,0 +1,50 @@
+<div class="geral">
+  <!-- SIGN IN (não conectado ainda) -->
+  <div id="signin">
+    <h1>Entrar</h1>
+    <p>Digite seus dados:</p>
+
+    <div class="field user">
+      <label for="userSignIn">Usuário:</label>
+      <input type="text" id="userSignIn" placeholder="Nome de Usuário.">
+    </div>
+
+    <div class="field senha">
+      <label for="passwordSignIn">Senha:</label>
+      <input type="password" id="passwordSignIn" placeholder="Senha.">
+    </div>
+
+    <button type="button" id="enviarSignIn">Enviar</button>
+  </div>
+
+  <!-- SIGN UP (conectado ao Reactive Form) -->
+  <div id="signup">
+    <form [formGroup]="form" (ngSubmit)="onSubmit();">
+      <h1>Cadastrar</h1>
+      <p>Não é Usuário? Cadastre-se aqui!</p>
+
+      <div class="field email">
+        <label for="emailSignUp">E-mail:</label>
+        <input type="email" id="emailSignUp" placeholder="Endereço de e-mail." formControlName="email" />
+      </div>
+
+      <div class="field user">
+        <label for="userSignUp">Usuário:</label>
+        <input type="text" id="userSignUp" placeholder="Nome de Usuário." formControlName="userName" />
+      </div>
+
+      <div class="field senha">
+        <label for="passwordSignUp">Senha:</label>
+        <input type="password" id="passwordSignUp" placeholder="Senha." formControlName="senha" />
+      </div>
+
+      <button type="submit" id="enviarSignUp" >
+        {{ loading ? 'Enviando...' : 'Enviar' }}
+      </button>
+
+        @if (ok) { <p style="color:green">Usuário cadastrado!</p> }
+        @if (erro) { <p style="color:red">{{ erro }}</p> }
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+:host {
+  font-family: "Raleway", sans-serif;
+}
+
+
+.geral {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;              
+  gap: 0;                          
+  color: #000;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  padding: 20px;
+  margin-top: 60px;
+  margin-inline: clamp(16px, 8vw, 120px);
+  border-radius: 20px;
+  background: linear-gradient(rgb(202, 182, 164), rgb(182, 162, 144));
+}
+
+
+#signin,
+#signup {
+  justify-self: center;
+  text-align: center;
+  width: 100%;
+  max-width: 520px;               
+}
+
+
+#signup {
+  border-left: 2px solid #000;
+  padding-left: clamp(24px, 6vw, 80px);
+}
+
+
+#email, #user, #senha {
+  padding: 10px;
+}
+
+
+#signin input,
+#signup input {
+  width: min(20vw, 360px);        
+  max-width: 100%;
+  height: 1.7rem;                 
+  padding: 0 10px;
+  margin: 5px;
+  border: 0.8px solid #000;
+  border-radius: 7px;
+  box-sizing: border-box;
+  outline: none;
+}
+
+
+#signin input:focus,
+#signup input:focus {
+  border-color: #29314d;
+  box-shadow: 0 0 0 3px rgba(41, 49, 77, 0.15);
+}
+
+
+#signin button,
+#signup button {
+  display: inline-block;
+  margin-top: 8px;
+  border: 0.8px solid #000;
+  border-radius: 10px;
+  background: linear-gradient(#ffd194, #ffa3a3);
+  color: #fff;
+  font-family: "Momo Trust Display", sans-serif;
+  font-size: 1rem;
+  width: min(10vw, 180px);
+  max-width: 100%;
+  height: 2.6rem;
+  cursor: pointer;
+  transition: transform .06s ease, filter .2s ease;
+}
+
+#signin button:hover,
+#signup button:hover {
+  filter: brightness(1.05);
+}
+#signin button:active,
+#signup button:active {
+  transform: translateY(1px);
+}
+
+
+@media (max-width: 820px) {
+  .geral {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  #signup {
+    border-left: none;
+    padding-left: 0;
+    border-top: 2px solid #000;   
+    padding-top: 16px;
+  }
+  #signin input,
+  #signup input {
+    width: min(80vw, 420px);
+  }
+  #signin button,
+  #signup button {
+    width: min(60vw, 240px);
+  }
+}
