@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ApiPostgresEf.Migrations;
 using ProjetoLogin.Data;
 using ProjetoLogin.Models;
+using BCrypt.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,4 +47,41 @@ app.MapPost("/usuarios", async (AppDb db, Usuario usuario) =>
     return Results.Created($"/usuarios/{usuario.Id}", usuario);
 });
 
+app.MapPost("/auth/login", async (AppDb db, LoginDto body) =>
+{
+    // ‘login’ pode ser userName OU email
+    var user = await db.Usuarios
+        .FirstOrDefaultAsync(u => u.UserName == body.Login || u.Email == body.Login);
+
+    // Se não encontrou, erro
+    if (user is null)
+        return Results.Unauthorized();
+
+    // Verifica hash (padrão)
+    var senhaOk = false;
+    try
+    {
+        // se você já salvou hash com BCrypt:
+        senhaOk = BCrypt.Net.BCrypt.Verify(body.Senha, user.SenhaHash);
+    }
+    catch
+    {
+        // fallback provisório: se você ainda grava “em claro” (apenas para testes)
+        senhaOk = user.SenhaHash == body.Senha;
+    }
+
+    if (!senhaOk)
+        return Results.Unauthorized();
+
+    // OK — (opcional: gere JWT aqui)
+    return Results.Ok(new
+    {
+        ok = true,
+        user = new { user.Id, user.UserName, user.Email }
+    });
+});
+
 app.Run();
+public record LoginDto(string Login, string Senha);
+
+

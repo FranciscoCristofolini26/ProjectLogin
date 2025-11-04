@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "65AgIaXNxVU=",
+  "dgSpecHash": "EPHgI4+Brxc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj",
+  "projectFilePath": "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Francisco\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Francisco\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Francisco\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.9\\microsoft.aspnetcore.openapi.9.0.9.nupkg.sha512",
     "C:\\Users\\Francisco\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

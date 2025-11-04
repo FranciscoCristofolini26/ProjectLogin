@@ -1,21 +1,22 @@
 <div class="geral">
-  <!-- SIGN IN (não conectado ainda) -->
   <div id="signin">
+  <form [formGroup]="signinForm" (ngSubmit)="onLogin()">
     <h1>Entrar</h1>
     <p>Digite seus dados:</p>
 
     <div class="field user">
-      <label for="userSignIn">Usuário:</label>
-      <input type="text" id="userSignIn" placeholder="Nome de Usuário.">
+      <label for="userSignIn">Usuário ou E-mail:</label>
+      <input type="text" id="userSignIn" placeholder="Usuário ou e-mail" formControlName="login">
     </div>
 
     <div class="field senha">
       <label for="passwordSignIn">Senha:</label>
-      <input type="password" id="passwordSignIn" placeholder="Senha.">
+      <input type="password" id="passwordSignIn" placeholder="Senha" formControlName="senha">
     </div>
 
-    <button type="button" id="enviarSignIn">Enviar</button>
-  </div>
+    <button type="submit" id="enviarSignIn">Enviar</button>
+  </form>
+</div>
 
   <!-- SIGN UP (conectado ao Reactive Form) -->
   <div id="signup">

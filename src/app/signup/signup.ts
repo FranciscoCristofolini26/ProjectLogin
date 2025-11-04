@@ -59,5 +59,40 @@ export class Signup {
   });
 }
 
+signinForm = this.fb.group({
+  login: this.fb.control('', { validators: [Validators.required] }), // aceita userName ou email
+  senha: this.fb.control('', { validators: [Validators.required] }),
+});
+
+onLogin() {
+  // debug opcional:
+  // console.log('LOGIN SUBMIT', this.signinForm.getRawValue());
+
+  if (this.signinForm.invalid) {
+    window.alert('Preencha usuário/e-mail e senha.');
+    return;
+  }
+
+  const { login, senha } = this.signinForm.getRawValue();
+  this.http.post(`${this.api}/auth/login`, { login, senha }).subscribe({
+    next: (res: any) => {
+      // sucesso
+      window.alert('Entrou com sucesso!');
+      // opcional: salve user/token no localStorage e redirecione
+      // localStorage.setItem('user', JSON.stringify(res.user));
+      // this.router.navigateByUrl('/home');
+    },
+    error: (e) => {
+      // 401 Unauthorized → dados inválidos
+      if (e?.status === 401) {
+        window.alert('Usuário ou senha inválidos.');
+      } else {
+        window.alert('Erro ao entrar. Tente novamente.');
+        console.error(e);
+      }
+    }
+  });
+}
+
 
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj": {}
+    "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj": {
+    "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj",
+        "projectUniqueName": "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj",
         "projectName": "ApiPostgresEf",
-        "projectPath": "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj",
+        "projectPath": "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ProjetoLogin\\ApiPostgresEf\\ApiPostgresEf.csproj",
         "packagesPath": "C:\\Users\\Francisco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ApiPostgresEf\\obj\\",
+        "outputPath": "C:\\Users\\Francisco\\Documents\\ProjetoLogin\\ProjetoLogin\\ApiPostgresEf\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -51,6 +51,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.9, )"
